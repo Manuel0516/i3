@@ -168,7 +168,7 @@ client.urgent           $blue-color    $blue-color   $text-color          #00ff0
 # i3wm bar
 bar {
         # Bar program
-        status_command i3blocks -c /home/manuel/.config/i3/i3blocks/config
+        status_command i3blocks -c /home/manuel/.config/i3/i3blocks-config
         
         # Position of the bar
         position top
