@@ -55,7 +55,6 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -68,12 +67,12 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # Workspace naming
-set $workspace1 "1:💻"
+set $workspace1 "1:✏️"
 set $workspace2 "2:🌍"
-set $workspace3 "3:✏️"
+set $workspace3 "3:💻"
 set $workspace4 "4:📂"
-set $workspace5 "5:📝"
-set $workspace6 "6"
+set $workspace5 " ﭮ:5" 
+set $workspace6 "6:📝" 
 set $workspace7 "7"
 set $workspace8 "8"
 set $workspace9 "9"
@@ -108,14 +107,16 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 assign [class="Firefox"] $workspace2
 assign [class="Google-chrome"] $workspace2
 # Coding apps
-assign [class="Atom"] $workspace3
-assign [class="Code"] $workspace3
-assign [class="Gedit"] $workspace3
+assign [class="Atom"] $workspace1
+assign [class="Code"] $workspace1
+assign [class="Gedit"] $workspace1
 # File apps
 assign [class="Nautilus"] $workspace4
 # Texting apps
 assign [class="TelegramDesktop"] $workspace5
 assign [class="whatsapp-desktop"] $workspace5
+#Discord app
+assign [class="discord"] $workspace5
 # Music apps
 #assign [class="Spotify"] $workspace10
 for_window [class="Spotify"] move to workspace $workspace10
@@ -159,12 +160,6 @@ set $inactive-text-color #676E7D
 set $urgent-bg-color     #E53935
 set $blue-color          #5DA8F4
 
-# Window colors
-client.focused          $bg-color           $bg-color          $text-color          #00ff00
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent           $blue-color    $blue-color   $text-color          #00ff00
-
 # i3wm bar
 bar {
         # Bar program
@@ -184,6 +179,10 @@ bar {
         }
 }
 
+
+client.focused #0088ad #0088ad #0088ad #0088ad
+
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
@@ -193,29 +192,23 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-# Touchpad controls
-bindsym XF86TouchpadToggle exec /home/manuel/bin/toggletouchpad # toggle touchpad
-
 # Music song controls
 bindsym XF86AudioPlay exec play_pause
 bindsym XF86AudioPause exec play_pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# Personal KeyBindings
-bindsm $mod+Shift+x exec shutdown -h now
-bindsymexec code
-bindsym $mod+Shift+b exec blueman-manager
-
-# Disable tap while typing
-exec syndaemon -i 0.3 -t -K -R
-
-# Apps on start
-exec_always bash /home/manuel/.config/i3/wallpaper.sh
-exec blueman
-
 #Poner el teclado en español
 exec setxkbmap -layout es
+
+#Aplicaciones al inicio
+exec discord
+exec google-chrome-estable
+exec spotify
+exec code
+
+#Quitar titulo de la ventana
+for_window [class="^.*"] border pixel 2
 
 #Dejar espacio entre bordes
 gaps inner 6
@@ -225,5 +218,9 @@ gaps outer 6
 exec picom
 
 #cambiar fondo 
-bindsym $mod+Shift+w bash /home/manuel/.config/i3/wallpaper.sh
+exec bash /home/manuel/.config/i3/wallpaper.sh
+bindsym $mod+w exec bash /home/manuel/.config/i3/wallpaper.sh
+
+#configuracion dos pantallas 
+exec bash /home/manuel/.config/i3/screen.sh
 
