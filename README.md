@@ -2,6 +2,8 @@
 
 This is my configuration of the tiling window manager i3.
 
+<img src="https://github.com/Manuel0516/i3/blob/master/Screenshots/i3.jpg">
+
 ## Dependencies 🚀 :
 
 Install the most important package, i3:
