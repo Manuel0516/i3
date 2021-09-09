@@ -224,3 +224,6 @@ bindsym $mod+w exec bash /home/manuel/.config/i3/wallpaper.sh
 #configuracion dos pantallas 
 exec bash /home/manuel/.config/i3/screen.sh
 
+#configuracion de hora
+
+exec timedatectl set-timezone Europe/Madrid
